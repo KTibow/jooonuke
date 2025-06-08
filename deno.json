@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "scan": "deno run --allow-net --allow-read --allow-write --allow-run main.ts scan",
+    "process": "deno run --allow-net --allow-read --allow-write --allow-run main.ts process"
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.0.0",
+    "@std/fs": "jsr:@std/fs@^1.0.0",
+    "@std/log": "jsr:@std/log@^1.0.0"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true
+  }
+}
