@@ -24,9 +24,13 @@ async function processUrl(url: string): Promise<void> {
   const result = await processRat(url);
 
   const { found, alreadyInactive, newlyNuked, errors } = result.webhooks;
-  console.log(
-    `\nResults for ${url}: ${found.length} found, ${newlyNuked.length} ✅ nuked, ${alreadyInactive.length} ⚠️ inactive, ${errors.length} ❌ errors`,
-  );
+  const breakdown = [
+    `${found.length} found`,
+    `${newlyNuked.length} ✅ nuked`,
+    `${alreadyInactive.length} ⚠️ inactive`,
+    `${errors.length} ❌ errors`,
+  ].filter((x) => !x.startsWith("0"));
+  console.log(`\nResults for ${url}: ${breakdown.join(", ")}`);
 
   // Print each webhook only once with its most specific status
   const printed = new Set();

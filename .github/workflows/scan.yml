@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Deno
+      - name: Set up Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: v2.x
 
-      - name: Install Java (for CFR decompiler)
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "21"
 
-      - name: Run scanner
+      - name: Run!
         run: deno task scan

@@ -137,7 +137,7 @@ async function testWebhook(webhookUrl: string): Promise<boolean> {
     }
 
     const json = await response.json();
-    console.log(`Found webhook: ${json.name} (${webhookUrl})`);
+    console.log(`Found webhook: ${JSON.stringify(json)} (${webhookUrl})`);
     return true;
   } catch {
     return false;
