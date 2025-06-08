@@ -132,13 +132,13 @@ async function testWebhook(webhookUrl: string): Promise<boolean> {
       method: "GET",
     });
 
-    // If we get a 404, webhook doesn't exist
-    if (response.status === 404) {
+    if (!response.ok) {
       return false;
     }
 
-    // Any other response means it exists
-    return response.ok;
+    const json = await response.json();
+    console.log(`Found webhook: ${json.name} (${webhookUrl})`);
+    return true;
   } catch {
     return false;
   }
