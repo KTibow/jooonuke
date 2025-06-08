@@ -155,6 +155,8 @@ async function nukeWebhook(webhookUrl: string) {
 
   const message = messages[Math.floor(Math.random() * messages.length)];
 
+  console.log(`sending ${message.slice(0, 20)}...`);
+
   await fetch(webhookUrl, {
     method: "POST",
     headers: { "content-type": "application/json" },
