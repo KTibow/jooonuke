@@ -1,7 +1,7 @@
 import { join } from "@std/path";
 
 const WEBHOOK_REGEX =
-  /(https?:\/\/(ptb\.|canary\.)?discord(app)?\.com\/api\/webhooks\/(\d{10,20})\/([\w\-]{50,70}))/g;
+  /(https?:\/\/(ptb\.|canary\.)?discord(app)?\.com\/api\/webhooks\/(\d{10,20})\/([\w\-]{68}))/g;
 
 export interface ProcessResult {
   url: string;
@@ -119,14 +119,7 @@ function deobfuscateByteArrays(content: string): string {
     // Convert bytes to string if they're valid ASCII
     if (bytes.every((b) => b >= 32 && b <= 126)) {
       const decoded = String.fromCharCode(...bytes);
-      // Only replace if it looks like part of a URL
-      if (
-        decoded.includes("http") ||
-        decoded.includes("discord") ||
-        decoded.includes("webhook")
-      ) {
-        deobfuscated += " " + decoded + " ";
-      }
+      deobfuscated += decoded;
     }
   }
 
