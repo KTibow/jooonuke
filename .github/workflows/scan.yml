@@ -2,7 +2,7 @@ name: Jooonuke
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "44 0 * * *"
   workflow_dispatch:
 
 jobs:
